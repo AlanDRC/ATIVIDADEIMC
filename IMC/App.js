@@ -18,10 +18,19 @@ export default function App() {
 
   const [showEmoji, setShowEmoji] = useState(false);
 
+  const [showEmoji2, setShowEmoji2] = useState(false);
+
+  const [showEmoji3, setShowEmoji3] = useState(false);
+
+  const [showEmoji4, setShowEmoji4] = useState(false);
+
+  const [showEmoji5, setShowEmoji5] = useState(false);
+
 
   function handleDescriptionChange(pnome) {
 
     setNome(pnome);
+    
     
   }
 
@@ -45,13 +54,25 @@ export default function App() {
 
     setIMC(ValorIMC)
 
-    if (ValorIMC > 30)
+    if (ValorIMC >= 40)
 
     setShowEmoji(true);
 
-  else
+  else if ((ValorIMC < 40) && (ValorIMC >=30) )
 
-    setShowEmoji(false);
+  setShowEmoji2(true);
+
+  else if ((ValorIMC < 30) && (ValorIMC >=25) )
+  setShowEmoji3(true);
+
+  else if ((ValorIMC < 25) && (ValorIMC >= 18.5) )
+  setShowEmoji4(true);
+
+  else if (ValorIMC < 18.5)
+
+  setShowEmoji5(true);
+
+  
 
   }
 
@@ -109,7 +130,12 @@ export default function App() {
 
         <Text style={styles.input}>{nome}</Text>
         <Text style={styles.input}>{IMC}</Text>
-        {showEmoji ? <Text style={styles.input}>??</Text> : ''}
+        {showEmoji ? <Text style={styles.input}>💀 Obesidade Grave</Text> : ''}
+        {showEmoji2 ? <Text style={styles.input}>😞 Obesidade</Text> : ''}
+        {showEmoji3 ? <Text style={styles.input}>😐 SobrePeso</Text> : ''}
+        {showEmoji4 ? <Text style={styles.input}>👍 Normal</Text> : ''}
+        {showEmoji5 ? <Text style={styles.input}>😠 Abaixo Peso </Text> : ''}
+
 
 
       </View>
